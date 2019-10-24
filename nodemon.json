@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "Trixie36",
+    "JWT_KEY": "secret",
+    "PORT": "3000"
+  }
+}
