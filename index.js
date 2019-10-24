@@ -43,20 +43,20 @@ app.use((req, res, next) => {
 app.use("/users", userRoutes);
 app.use("/exercises", exerciseRoutes);
 
-// app.use((req, res, next) => {
-//   const error = new Error("Not found");
-//   error.status = 404;
-//   next(error);
-// });
+app.use((req, res, next) => {
+  const error = new Error("Not found");
+  error.status = 404;
+  next(error);
+});
 
-// app.use((error, req, res, next) => {
-//   res.status(error.status || 500);
-//   res.json({
-//     error: {
-//       message: error.message
-//     }
-//   });
-// });
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error: {
+      message: error.message
+    }
+  });
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + "/public/"));

@@ -100,32 +100,6 @@ exports.get_exercise = (req, res, next) => {
     });
 };
 
-exports.edit_exercise = (req, res, next) => {
-  const id = req.params.exerciseId;
-  const updateOps = {};
-  for (const ops of req.body) {
-    console.log(ops.propName + " " + ops.value);
-    updateOps[ops.propName] = ops.value;
-  }
-  console.log(updateOps);
-  Exercise.update({ _id: id }, { $set: updateOps })
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({
-        message: "User updated",
-        request: {
-          type: "GET",
-          url: "localhost:3000/users/" + result._id
-        }
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ error: err });
-    });
-};
-
 exports.delete_exercise = (req, res, next) => {
   Exercise.remove({ _id: req.params.exerciseId })
 

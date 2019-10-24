@@ -10,8 +10,6 @@ router.post("/", ExerciseController.new_exercise);
 
 router.get("/:exerciseId", ExerciseController.get_exercise);
 
-router.patch("/:exerciseId", checkAuth, ExerciseController.edit_exercise);
-
 router.delete("/:exerciseId", checkAuth, ExerciseController.delete_exercise);
 
 module.exports = router;

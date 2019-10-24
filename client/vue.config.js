@@ -5,10 +5,10 @@ module.exports = {
   devServer: {
     proxy: {
       "/users": {
-        target: "http://localhost:3000"
+        target: "http://localhost:8080"
       },
       "/exercises": {
-        target: "http://localhost:3000"
+        target: "http://localhost:8080"
       }
     }
   }
