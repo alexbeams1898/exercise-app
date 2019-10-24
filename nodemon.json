@@ -3,6 +3,6 @@
     "MONGO_ATLAS_PW": "Trixie36",
     "JWT_KEY": "secret",
     "NODE_ENV": "development",
-    "PORT": "3000"
+    "PORT": "8080"
   }
 }

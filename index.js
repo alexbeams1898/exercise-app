@@ -12,6 +12,10 @@ mongoose.connect(
 );
 mongoose.Promise = global.Promise;
 
+app.get("/", function(req, res) {
+  res.sendfile("./public/index.html");
+});
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
@@ -62,7 +66,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 80;
 
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
