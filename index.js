@@ -12,10 +12,6 @@ mongoose.connect(
 );
 mongoose.Promise = global.Promise;
 
-// app.get("/", function(req, res) {
-//   res.sendfile("./public/index.html");
-// });
-
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
