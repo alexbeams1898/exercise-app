@@ -1,15 +1,7 @@
 <template>
-  <header>
-    <h1>Excercise App</h1>
-  </header>
+  <h1 class="is-size-3">
+    <a href="/">
+      <b>Excercise App</b>
+    </a>
+  </h1>
 </template>
-
-<script>
-export default {
-  name: "Header",
-  data() {}
-};
-</script>
-
-<style scoped>
-</style>
