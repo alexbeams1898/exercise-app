@@ -6,15 +6,15 @@
       <div class="column is-one-third is-offset-one-third">
         <ul class="panel">
           <p class="panel-heading">Login</p>
-          <form class="panel-block" @submit.prevent="logIn">
+          <form class="panel-block" @submit.prevent="join">
             <div class="field" :class="{ 'is-danger': error }">
               <div class="field">
-                <div class="control has-icons-left has-icons-right">
+                <div class="control">
                   <input v-model="username" class="input" type="text" placeholder="Username" />
                 </div>
               </div>
               <div class="field">
-                <div class="control has-icons-left has-icons-right">
+                <div class="control">
                   <input v-model="password" class="input" type="text" placeholder="Password" />
                 </div>
               </div>
@@ -25,12 +25,6 @@
             </div>
           </form>
         </ul>
-        <p>
-          Don't have an account?
-          <router-link to="/signup" exact-active-class="active">
-            Sign Up
-          </router-link>
-        </p>
       </div>
     </div>
   </div>
@@ -45,8 +39,8 @@ export default {
     error: ""
   }),
   methods: {
-    logIn() {
-      Profile_Server.LogIn(this.username, this.password).catch(err => {
+    join() {
+      Profile_Server.Join(this.username, this.password).catch(err => {
         this.error = err.message;
       });
     }
@@ -55,13 +49,6 @@ export default {
 </script>
 
 <style>
-.fas.fa-exclamation-triangle {
-  display: none;
-}
-.fa-exclamation-triangle {
-  display: inline;
-  color: red;
-}
 .input {
   border-color: red;
 }

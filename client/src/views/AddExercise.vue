@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="is-size-1">Add Exercise</h1>
+    <h1 class="is-size-2">Add Exercise</h1>
 
     <div class="columns">
       <div class="column is-one-third is-offset-one-third">
@@ -43,10 +43,6 @@ export default {
     sets: "",
     reps: ""
   }),
-  //   async created() {
-  //     this.My_Exercises = await Profile_Server.Get_Exercises();
-  //     setInterval(async () => (this.profile = await Profile_Server.Get_State()), 2000);
-  //   },
   methods: {
     addExercise() {
       let exercise = {

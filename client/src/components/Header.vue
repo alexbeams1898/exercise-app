@@ -1,7 +1,11 @@
 <template>
-  <h1 class="is-size-3">
-    <a href="/">
-      <b>Excercise App</b>
-    </a>
+  <h1 class="main-header is-size-2">
+    <b>Excercise Tracker</b>
   </h1>
 </template>
+
+<style>
+.main-header {
+  padding-top: 30px;
+}
+</style>

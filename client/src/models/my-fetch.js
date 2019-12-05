@@ -1,33 +1,8 @@
-const api_root = "http://localhost:3000/profile/";
+const api_root = "http://localhost:" + (process.env.PORT || 3000) + "/profile/";
 
 export async function api(url, data) {
   let response;
   const headers = { authorization: "bearer " + User.User_Id };
-
-  //   switch (method) {
-  //     case "get":
-  //       response = await fetch(api_root + url, {
-  //         method: "GET", // *GET, POST, PUT, DELETE, etc.
-  //         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  //         headers: {
-  //           ...headers,
-  //           "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify(data) // body data type must match "Content-Type" header
-  //       });
-  //       break;
-  //     case "post":
-  //       response = await fetch(api_root + url, {
-  //         method: "GET", // *GET, POST, PUT, DELETE, etc.
-  //         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  //         headers: {
-  //           ...headers,
-  //           "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify(data) // body data type must match "Content-Type" header
-  //       });
-  //       break;
-  //   }
 
   if (data) {
     response = await fetch(api_root + url, {
@@ -51,5 +26,7 @@ export async function api(url, data) {
 }
 
 export const User = {
-  User_Id: null
+  User_Id: null,
+  Username: null,
+  Password: null
 };
