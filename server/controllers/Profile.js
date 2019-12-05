@@ -1,6 +1,6 @@
 const express = require("express");
-const { Profile } = require("../models/Profile");
-const { CustomError } = require("../models/CustomError");
+const { Profile } = require("../../models/Profile");
+const { CustomError } = require("../../models/CustomError");
 
 const app = express.Router();
 
