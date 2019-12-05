@@ -1,3 +1,3 @@
-const users = [{ name: "Alex", age: 21 }];
+const users = [];
 
 module.exports = users;
