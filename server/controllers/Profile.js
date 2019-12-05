@@ -1,6 +1,6 @@
 const express = require("express");
-const { Profile } = require("../../models/Profile");
-const { CustomError } = require("../../models/CustomError");
+const { Profile } = require("../models/Profile");
+const { CustomError } = require("../models/CustomError");
 
 const app = express.Router();
 
@@ -17,14 +17,6 @@ app.get("/picture/flip", (req, res) => {
   Profile.Flip_Picture();
   res.send({ success: true, url: Profile.Picture_In_Play });
 });
-// app.post("currentexercise", (req, res) => {
-//   Profile.Get_Current_Exercise();
-//   res.send({ success: true });
-// });
-// app.get("/users", (req, res) => {
-//   const user_id = Profile.LogIn(req.body.username);
-//   res.send({ success: true, user_id });
-// });
 app.post("/users", (req, res) => {
   const user_id = Profile.Join(req.body.username);
   res.send({ success: true, user_id });
@@ -41,9 +33,5 @@ app.post("/captions_in_play", (req, res) => {
   Profile.Submit_Caption(req.user_id, req.body.text);
   res.send({ success: true });
 });
-// app.post("/openexercise", (req, res) => {
-//   Profile.Choose_Exercise(req.user_id, req.body.id);
-//   res.send({ success: true });
-// });
 
 module.exports = app;
