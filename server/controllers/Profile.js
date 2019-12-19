@@ -10,6 +10,9 @@ app.get("/", (req, res) => {
 app.get("/hand", (req, res) => {
   res.send(Profile.Get_Exercises());
 });
+app.get("/names", (req, res) => {
+  res.send(Profile.Get_Names());
+});
 app.get("/picture/flip", (req, res) => {
   if (req.user_id != Profile.Dealer) {
     throw new CustomError(403, "Only the dealer can flip the picture");

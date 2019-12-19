@@ -6,6 +6,9 @@ export const Profile_Server = {
   Get_Exercises() {
     return api("hand");
   },
+  Get_Names() {
+    return api("names");
+  },
   async Add_Exercise(exercise) {
     await api("addexercise", { exercise });
     $router.push({ name: "profile" });

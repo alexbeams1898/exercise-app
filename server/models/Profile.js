@@ -5,6 +5,7 @@ const { CustomError } = require("./CustomError");
 module.exports.Profile = {
   Users: Users,
   Exercises,
+  Exercise_Names: [],
   Top_Of_Picture_Deck: 0,
   Top_Of_Caption_Deck: 0,
 
@@ -14,6 +15,17 @@ module.exports.Profile = {
   Exercise_Chosen: {},
   Get_Exercises() {
     return this.Exercises;
+  },
+  Get_Names() {
+    this.Exercise_Names = this.Add_Names();
+    return this.Exercise_Names;
+  },
+  Add_Names() {
+    let names = [];
+    for (let index = 0; index < this.Exercises.length; index++) {
+      names[index] = this.Exercises[index].name;
+    }
+    return names;
   },
   Add_Exercise(name, sets, reps) {
     Exercises.push({ name, sets, reps });
@@ -41,15 +53,6 @@ module.exports.Profile = {
   //   alert(this.Current_User);
   //   return this.Current_User;
   // },
-  Submit_Caption(player_id, text) {
-    if (player_id == this.Dealer) {
-      throw new CustomError(500, "Dealer is not allowed to submit a caption");
-    }
-    if (this.Captions_In_Play.some(x => x.player_id == player_id)) {
-      throw new CustomError(500, "Sorry, you already submitted a caption");
-    }
-    this.Captions_In_Play.push({ player_id, text });
-  },
   // Choose_Exercise(player_id, id) {
   //   this.Exercise_Chosen = Exercises[id];
   //   // this.Dealer = (this.Dealer + 1) % this.Players.length;
@@ -60,12 +63,8 @@ module.exports.Profile = {
   Get_State() {
     return {
       Users: this.Users,
-      Dealer: this.Dealer,
-      Captions_In_Play: this.Captions_In_Play.map(x => ({
-        text: x.text,
-        player:
-          this.Caption_Chosen == -1 ? "hidden" : this.Users[x.user_id].username
-      })),
+      Exercises: this.Exercises,
+      Exercise_Names: this.Exercise_Names,
       Picture_In_Play: this.Picture_In_Play,
       Exercise_Chosen: this.Exercise_Chosen
     };
